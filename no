@@ -62,23 +62,6 @@ Provided on the pipeline
       $_ or $input
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Function Get-SquareNum($Num){
       $result = $num * $num
       $result
