@@ -17,29 +17,90 @@ $guy["new"] = " "
 
 
 
+Return line of text in file that begins with specified text, if none, return null
+
+      $content = get-contnt $file 
+      foreach ($i in $content) {
+            if ($i.startswith($line)) {
+                  return $i
+                  }
+      return $null
+
+
+
+Combine argument into string, seperated by "/" between each element 
+      
+      return $arr-join('/')
+
+
+
+
+Return Processes sorted descending by processname 
+
+      return Get-Process | Sort-Object -Property name -descending
+
+
+
+Search for an array for first occurance for $key at column index 0 an dreturn value at column index 9 in same row., return -1 if not found
+
+      foreach ($i in $arr) {
+            if($i[0] -eq $key) {
+                  return $i[9]
+                  }
+            }
+      return -1
+
+
+Get todays date in yyyymmdd format
+
+      %fmt = '%y%m%d'
+      return Get-Date -Uformat $fmt
+
+
+Provided on the pipeline
+
+      $_ or $input
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Function Get-SquareNum($Num){
-$result = $num * $num
-$result
-}
+      $result = $num * $num
+      $result
+      }
 
 
 
 Function Get-Product($val1,$val2,$val3) {
-return $val1 * $val2 * $val3
-$result
-}
+      return $val1 * $val2 * $val3
+      $result
+      }
 
 
 
 Function Get-Missingside($a,$b) {
-return [math]::sqrt(($a * $a) + ($b * $b)) 
-}
+      return [math]::sqrt(($a * $a) + ($b * $b)) 
+      }
 
 
 
 Functon Get-Anglesum($a,$b) {
-return 180 - ($a + $b)
+      return 180 - ($a + $b)
 }
 
 
@@ -59,20 +120,20 @@ $last,
 
 
 Functon Get-Multisum([array]$aaray,[int]$number) {
-Begin{
-      $sum=0
+      Begin{
+            $sum=0
+            }
+      Process {
+            Foreach($num in $array) {
+                  if($num -eq $number) {
+                        continue
+                              }
+      $sum += $num
+                              }
+                              }
+      End {
+      $sum
       }
-Process {
-      Foreach($num in $array) {
-            if($num -eq $number) {
-                  continue
-                              }
-$sum += $num
-                              }
-                              }
-End {
-$sum
-}
 
 
 
