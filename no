@@ -12,15 +12,89 @@ Addition
 
 
 
+$guy = @{name = " ";}
+$guy["new"] = " "
+
+
+
+
+Function Get-SquareNum($Num){
+$result = $num * $num
+$result
+}
+
+
+
+Function Get-Product($val1,$val2,$val3) {
+return $val1 * $val2 * $val3
+$result
+}
+
+
+
+Function Get-Missingside($a,$b) {
+return [math]::sqrt(($a * $a) + ($b * $b)) 
+}
+
+
+
+Functon Get-Anglesum($a,$b) {
+return 180 - ($a + $b)
+}
+
+
+
+
+Function Get-Userinfo {
+param(
+[Parameter(mandatory,Position=1)]
+[string]
+$first,
+[Parameter(mandatory,position=3)]
+[string]
+$last,
+[Parameter(mandatory,position=2)]
+[int]
+
+
+
+Functon Get-Multisum([array]$aaray,[int]$number) {
+Begin{
+      $sum=0
+      }
+Process {
+      Foreach($num in $array) {
+            if($num -eq $number) {
+                  continue
+                              }
+$sum += $num
+                              }
+                              }
+End {
+$sum
+}
 
 
 
 
 
-
-
-
-
+Function Get-LongestName {
+Begin{
+      $count = 0
+      $states = @(0
+      }
+Process {
+      while($count -lt 3) {
+            $res = Read-Host "enter a us state"
+            $states += $res
+            $count += 1
+                        }
+            }
+End {
+      $list = $states | sort _property Length -Descending
+      Foreach($state in $list) {
+            "$state': " + $state.length
+}
 
 
 
